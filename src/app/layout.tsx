@@ -1,6 +1,6 @@
 
 import "./globals.css";
-import Home from "./components/Home";
+import Menu from "./components/Menu";
 
 
 export default function RootLayout({
@@ -9,14 +9,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-
   return (
     <html lang="en">
       <body>
-        {/* Layout UI */}
-        {/* Place children where you want to render a page or nested layout */}
-        <Home/>
-        
+      <Menu />
+      {children}
       </body>
     </html>
   );

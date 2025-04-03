@@ -12,8 +12,8 @@ interface CardListProps{
 const CardList = ({movies}: CardListProps) => {
 
     const createCard=()=>{
-        return movies.map((movie, id)=>{
-            return <Card key={id} movie={movie}/>
+        return movies.map((movie, key)=>{
+            return <Card key={movie.id} movie={movie}/>
         })
     }
 
