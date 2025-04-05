@@ -1,5 +1,6 @@
-import { Circle, Edit, Trash } from "react-feather";
+import { Edit, Trash } from "react-feather";
 import { Movie } from "../types/movie";
+import Link from "next/link";
 
 
 interface CardProps {

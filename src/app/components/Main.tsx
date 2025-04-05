@@ -1,7 +1,7 @@
 "use client";
 import Header from "./Header";
 import CardList from "./CardList";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, SetStateAction, useEffect, useState, Dispatch } from "react";
 import movieDb from "../../app/movieDb.json";
 import { Movie } from "../types/movie";
 import { Search } from "react-feather";
@@ -11,8 +11,11 @@ type MovieData = {
     movieDb: Movie[];
 };
 
+
+
+
 const Main = () => {
-    const [movies, setMovies] = useState<MovieData>({ movieDb: [] });
+     const [movies, setMovies] = useState<MovieData>({ movieDb: [] });
 
     const [searchTermMovies, setSearchTermMovies] = useState("");
     const [initialData, setInitialData] = useState<MovieData>({ movieDb: [] });
@@ -40,7 +43,7 @@ const Main = () => {
                 return movie.title.toLowerCase().includes(searchTermMovies.toLowerCase())
             }
             )
-            console.log("wghgsahjgdhgashjdgsahjgd",searchResults)
+            console.log("wghgsahjgdhgashjdgsahjgd", searchResults)
             setMovies({ movieDb: searchResults })// movieDb key ko searchResults diya
             setNoResults(searchResults.length === 0);
 
