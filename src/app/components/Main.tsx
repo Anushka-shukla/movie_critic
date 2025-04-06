@@ -1,32 +1,33 @@
 "use client";
-import Header from "./Header";
+import HomeHeader from "./HomeHeader";
 import CardList from "./CardList";
-import { ChangeEvent, SetStateAction, useEffect, useState, Dispatch } from "react";
+import { ChangeEvent, SetStateAction, useEffect, useState, Dispatch, useContext } from "react";
 import movieDb from "../../app/movieDb.json";
 import { Movie } from "../types/movie";
 import { Search } from "react-feather";
 import ErrorMsg from "./ErrorMsg";
+import MovieDataContext from "../Context/MovieDataContext";
 
 type MovieData = {
     movieDb: Movie[];
 };
 
-
-
-
 const Main = () => {
-     const [movies, setMovies] = useState<MovieData>({ movieDb: [] });
+    //  const [movies, setMovies] = useState<MovieData>({ movieDb: [] });
+    const context = useContext(MovieDataContext)
+    if(!context){
+        return
+    }
+    const {movies, setMovies} = context||{};
 
     const [searchTermMovies, setSearchTermMovies] = useState("");
     const [initialData, setInitialData] = useState<MovieData>({ movieDb: [] });
     const [noResults, setNoResults] = useState(false)
 
-
     useEffect(() => {
         setMovies(movieDb); // Load static JSON data
         console.log(movieDb.movieDb);
     }, []);
-
 
     const searchTerm = (e: ChangeEvent<HTMLInputElement>) => {
         console.log(e)
@@ -46,11 +47,9 @@ const Main = () => {
             console.log("wghgsahjgdhgashjdgsahjgd", searchResults)
             setMovies({ movieDb: searchResults })// movieDb key ko searchResults diya
             setNoResults(searchResults.length === 0);
-
         } else {
             setMovies(movies)
         }
-
     }
 
     return (
@@ -58,7 +57,7 @@ const Main = () => {
 
             <div>
 
-                <Header />
+                <HomeHeader />
 
                 {/* search bar */}
                 <div className="flex m-6 pl-8">

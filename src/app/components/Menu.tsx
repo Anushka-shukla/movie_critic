@@ -7,16 +7,12 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Home } from "react-feather";
 import Modal from "./common/Modal";
-
 import { Movie } from "../types/movie";
 
 
 type MovieData = {
     movieDb: Movie[];
 };
-
-
-
 
 const Menu = () => {
     const pathName = usePathname();
@@ -28,8 +24,6 @@ const Menu = () => {
         setIsMovieModalOpen(true)
         setIsReviewModalOpen(false)
         disableScroll()
-
-
     }
 
     const handleReviewModal = () => {
@@ -37,8 +31,6 @@ const Menu = () => {
         setIsMovieModalOpen(false)
         disableScroll()
     }
-
-
 
     const enableScroll = () => {
         if (typeof window != 'undefined' && window.document) {
@@ -52,8 +44,6 @@ const Menu = () => {
             document.body.style.overflow = 'hidden';
         }
     }
-
-
 
     console.log(isMovieModalOpen, isReviewModalOpen)
 

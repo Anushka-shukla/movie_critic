@@ -8,7 +8,6 @@ interface CardListProps{
     
 }
 
-
 const CardList = ({movies}: CardListProps) => {
 
     const createCard=()=>{

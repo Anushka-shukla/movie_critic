@@ -7,5 +7,11 @@ export interface Movie {
     vote_average: number;
     overview: string;
     release_date: string;
+    author: string;
 
+}
+
+export interface MovieData {
+    movieDb: Movie[];
+    
 }

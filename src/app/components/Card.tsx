@@ -1,18 +1,14 @@
 import { Edit, Trash } from "react-feather";
 import { Movie } from "../types/movie";
-import Link from "next/link";
-
 
 interface CardProps {
     movie: Movie
 }
 
-
 const getMovieStatus = (adult: boolean) => {
     switch (adult) {
         case true:
             return <div className="border-1 border rounded-md p-1 w-15"><p className="text-xs">CBFC: A</p></div>
-
         case false:
             return <div className="border-1 border rounded-md p-1 w-15"><p className="text-xs">CBFC: U</p></div> 
         default:
